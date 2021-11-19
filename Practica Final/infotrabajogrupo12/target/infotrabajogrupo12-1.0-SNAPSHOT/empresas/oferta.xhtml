@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <h1>Selecciona una oferta</h1>
+                <h:form>
+                    <h2><h:outputText value="Información de la oferta con ID: #{ofertaClientBean.oferta.id}"/></h2>
+                    <p:panelGrid id="info" columns="2">
+                        <h:outputText value="Email de la Empresa: "/>
+                        <h:outputText value="#{ofertaClientBean.oferta.emailEmpresa}"/>
+                        <h:outputText value="Descripcion: "/>
+                        <h:outputText value="#{ofertaClientBean.oferta.descripcion}"/>
+                        <h:outputText value="Estudios Obligatorios: "/>
+                        <h:outputText value="#{ofertaClientBean.oferta.estudios}"/>
+                        <h:outputText value="Fecha de Incorporacion:"/>
+                        <h:outputText value="#{ofertaClientBean.oferta.fechIncor}"/>
+                        <h:outputText value="Fecha de Vigencia:"/>
+                        <h:outputText value="#{ofertaClientBean.oferta.fechVigen}"/>
+                        <h:outputText value="Otros requisitos:"/>
+                        <h:outputText value="#{ofertaClientBean.oferta.otros}"/>
+                        <h:outputText value="Solicitudes Actuales:"/>
+                        <h:outputText value="#{ofertaClientBean.oferta.solicitudes}"/>
+                        <h:outputText value="Nombre de la oferta:"/>
+                        <h:outputText value="#{ofertaClientBean.oferta.nombre}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="Back" action="gestionoferta" icon="ui-icon-arrowrefresh-1-w"/>
+                    <p:commandButton value="Borrar" action="gestionoferta" actionListener="#{ofertaClientBean.deleteOferta()}"/>
+                    <p:commandButton value="Actualizar" action="actoferta"/>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

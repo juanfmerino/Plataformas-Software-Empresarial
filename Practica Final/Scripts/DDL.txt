@@ -1,0 +1,38 @@
+CREATE TYPE estudioType AS ENUM ('sin estudios', 'secundaria', 'bachillerato','fp', 'grado','master');
+
+CREATE CAST (character varying AS estudioType) WITH INOUT AS IMPLICIT; 
+
+CREATE TABLE users (
+ Email varchar(255) NOT NULL,
+ Nombre varchar(64) NOT NULL,
+ Password varchar(64) NOT NULL,
+ Fech_Nac date,
+ Telefono char(9),
+ Tarjeta_Credito varchar(64),
+ PRIMARY KEY (email)
+);
+
+
+CREATE TABLE oferta(
+ ID integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+ Nombre varchar(32) NOT NULL,
+ Descripcion varchar(255) NOT NULL,
+ Fech_Incor date NOT NULL,
+ Fech_Vigen date NOT NULL,
+ Email_Empresa varchar(32) NOT NULL,
+ estudios estudioType NOT NULL,
+ Otros varchar(255),
+ Solicitudes integer NOT NULL
+);
+
+CREATE TABLE grupos_usuarios (
+ email VARCHAR(255) NOT NULL,
+ nombregrupo VARCHAR(32) NOT NULL,
+ PRIMARY KEY (email)
+);
+
+CREATE TABLE solicitar (
+ID integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+ oferta integer NOT NULL,
+ Email varchar(255) NOT NULL
+);

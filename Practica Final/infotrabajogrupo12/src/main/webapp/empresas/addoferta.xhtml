@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    
+                    <p:panel header="Crear una nueva cuenta">
+                        <h:panelGrid id="grid" columns="3">
+                            <h:outputLabel for="descripciom" value="Descripcion:" style="font-weight:bold"/>
+                            <p:inputText id="descripciom" value="#{ofertaBackingBean.descripcion}" required="true"
+                            requiredMessage="Por favor, introduce la descripciom." maxlength="255"/>
+                            <p:message for="descripciom"/>
+                            
+                             <h:outputLabel for="estudios" value="Estudios:" style="font-weight:bold"/>
+                                    <h:selectOneRadio id="estudios" value="#{ofertaBackingBean.estudios}" layout="pageDirection" required="true" requiredMessage="Por favor, introduce los estudios.">
+                                        <f:selectItem itemLabel="sin estudios" itemValue="sin estudios"/>
+                                        <f:selectItem itemLabel="secundaria" itemValue="secundaria"/>
+                                        <f:selectItem itemLabel="bachillerato" itemValue="bachillerato"/>
+                                        <f:selectItem itemLabel="fp" itemValue="fp"/>
+                                        <f:selectItem itemLabel="grado" itemValue="grado"/>
+                                        <f:selectItem itemLabel="master" itemValue="master"/>
+                                    </h:selectOneRadio>
+                                    <p:message for="estudios"/>
+                            
+                            <h:outputLabel for="nombre" value="Nombre de la oferta:" style="font-weight:bold"/>
+                            <p:inputText id="nombre" value="#{ofertaBackingBean.nombre}" required="true"
+                                         requiredMessage="Por favor, introduce el nombre de la oferta.">
+                            </p:inputText>
+                            <p:message for="nombre"/>
+                            
+                            <h:outputLabel for="otros" value="Otros Requistos:" style="font-weight:bold"/>
+                            <p:inputText id="otros" value="#{ofertaBackingBean.otros}" required="false">
+                            </p:inputText>
+                            <p:message for="otros"/>
+
+                            <h:outputLabel for="fechaV" value="Fecha de Vigencia:" style="font-weight:bold"/>
+                            <p:datePicker id="fechaV" value="#{ofertaBackingBean.fechaVigen}" locale="es" monthNavigator="true"
+                                          pattern="yyyy-MMM-dd" required="true" requiredMessage="Por favor, introduce la fecha de Vigencia." mindate="#{ofertaClientBean.min}"/>
+                            <p:message for="fechaV"/>
+                            
+                            <h:outputLabel for="fechaI" value="Fecha de Incorporacion:" style="font-weight:bold"/>
+                            <p:datePicker id="fechaI" value="#{ofertaBackingBean.fechaIncor}" locale="es" monthNavigator="true"
+                                          pattern="yyyy-MMM-dd" required="true" requiredMessage="Por favor, introduce la fecha de Vigencia." mindate="#{ofertaClientBean.min}"/>
+                            <p:message for="fechaI"/>
+                           
+                            
+                        </h:panelGrid>
+                        <p:commandButton value="Añadir" action="gestionoferta" actionListener="#{ofertaClientBean.addOferta()}"/>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

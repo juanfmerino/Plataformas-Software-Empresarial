@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                
+                <h:form>
+                    <f:event listener="#{registerView.validateEmail}" type="postValidate" />
+                    <p:panel header="Actualizar paquete #{ofertaClientBean.oferta.id}">
+                        <p:panelGrid id="grid" columns="4">
+                               
+                             <h:outputLabel for="email" value="Nombre del puesto:" style="font-weight:bold"/>
+                               <p:inputText id="email" value="#{ofertaBackingBean.emailEmpresa}" required="true"
+                                            requiredMessage="Por favor, introduce el email de la empresa." maxlength="64"/>
+                               <h:outputText value="(#{ofertaClientBean.oferta.emailEmpresa})"/>
+                               <p:message for="email"/>
+
+                               <h:outputLabel for="nombre" value="Nombre del puesto:" style="font-weight:bold"/>
+                               <p:inputText id="nombre" value="#{ofertaBackingBean.nombre}" required="true"
+                                            requiredMessage="Por favor, introduce el nombre del puesto." maxlength="64"/>
+                               <h:outputText value="(#{ofertaClientBean.oferta.nombre})"/>
+                               <p:message for="nombre"/>
+                               
+                               
+                                <h:outputLabel for="fechaV" value="Fecha de Vigencia:" style="font-weight:bold"/>
+                                <p:datePicker id="fechaV" value="#{ofertaBackingBean.fechaVigen}" locale="es" monthNavigator="true"
+                                    pattern="yyyy-MMM-dd" required="true" requiredMessage="Por favor, introduce la fecha de Vigencia." mindate="#{ofertaClientBean.min}"/>
+                                <h:outputText value="#{ofertaClientBean.oferta.fechVigen}">
+                                   <f:convertDateTime pattern="YYYY/MM/dd" timeZone="GMT+2" />
+                                </h:outputText>
+                                <p:message for="fechaV"/>
+
+                                <h:outputLabel for="fechaI" value="Fecha de Incorporacion:" style="font-weight:bold"/>
+                                <p:datePicker id="fechaI" value="#{ofertaBackingBean.fechaIncor}" locale="es" monthNavigator="true"
+                                    pattern="yyyy-MMM-dd" required="true" requiredMessage="Por favor, introduce la fecha de Vigencia." mindate="#{ofertaClientBean.min}"/>
+                                <h:outputText value="#{ofertaClientBean.oferta.fechIncor}">
+                                   <f:convertDateTime pattern="YYYY/MM/dd" timeZone="GMT+2" />
+                               </h:outputText>
+                                <p:message for="fechaI"/>                       
+                               
+                               <h:outputLabel for="estudios" value="Estudios:" style="font-weight:bold"/>
+                                    <h:selectOneRadio id="estudios" value="#{ofertaBackingBean.estudios}" layout="pageDirection" required="true" requiredMessage="Por favor, introduce los estudios.">
+                                        <f:selectItem itemLabel="Sin estudios" itemValue="sin estudios"/>
+                                        <f:selectItem itemLabel="Secundaria" itemValue="secundaria"/>
+                                        <f:selectItem itemLabel="Bachillerato" itemValue="bachillerato"/>
+                                        <f:selectItem itemLabel="FP" itemValue="fp"/>
+                                        <f:selectItem itemLabel="Grado" itemValue="grado"/>
+                                        <f:selectItem itemLabel="Master" itemValue="master"/>
+                                    </h:selectOneRadio>
+                                    <h:outputText value="(#{ofertaClientBean.oferta.estudios})">
+                                    </h:outputText>
+                                    <p:message for="estudios"/>
+                                
+
+                               
+                               
+                               <h:outputLabel for="descripcion" value="Descripción:" style="font-weight:bold"/>
+                               <p:inputText id="descripcion" value="#{ofertaBackingBean.descripcion}" required="true"
+                                            requiredMessage="Por favor, introduce una descripción." maxlength="64"/>
+                               <h:outputText value="(#{ofertaClientBean.oferta.descripcion})"/>
+                               <p:message for="descripcion"/>
+
+                               <h:outputLabel for="otros" value="Otros Requistos:" style="font-weight:bold"/>
+                               <p:inputText id="otros" value="#{ofertaBackingBean.otros}" required="false"
+                                             maxlength="255"/>
+                               <h:outputText value="(#{ofertaClientBean.oferta.otros})"/>
+                               <p:message for="otros"/>
+
+                        </p:panelGrid>
+                        <p:commandButton value="Actualizar paquete" action="gestionoferta" actionListener="#{ofertaClientBean.actualizarOferta()}"/>
+                   </p:panel>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

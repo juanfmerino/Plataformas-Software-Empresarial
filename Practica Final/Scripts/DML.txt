@@ -1,0 +1,19 @@
+insert into users (Email,Nombre,Password,Fech_Nac,Telefono,Tarjeta_Credito) values('juan@hotmail.com','Juan','m0t4MwDBCN3TX3SPSCJPruDTEJpDKf+Lml+5J6QFobw=','1999-09-29','661216691','5557008983415422');
+insert into users (Email,Nombre,Password,Fech_Nac,Telefono,Tarjeta_Credito) values('daniel@hotmail.com','Daniel','m0t4MwDBCN3TX3SPSCJPruDTEJpDKf+Lml+5J6QFobw=','1998-09-29','661558899','5269678410407751');
+insert into users (Email,Nombre,Password,Fech_Nac,Telefono,Tarjeta_Credito) values('elasa@hotmail.com','Elasa','m0t4MwDBCN3TX3SPSCJPruDTEJpDKf+Lml+5J6QFobw=',null,null,null);
+insert into users (Email,Nombre,Password,Fech_Nac,Telefono,Tarjeta_Credito) values('garese@hotmail.com','Garese','m0t4MwDBCN3TX3SPSCJPruDTEJpDKf+Lml+5J6QFobw=',null,null,null);
+
+insert into grupos_usuarios(email,nombregrupo) values ('juan@hotmail.com','users');
+insert into grupos_usuarios(email,nombregrupo) values ('daniel@hotmail.com','users');
+insert into grupos_usuarios(email,nombregrupo) values ('elasa@hotmail.com','empresas');
+insert into grupos_usuarios(email,nombregrupo) values ('garese@hotmail.com','empresas');
+
+
+insert into oferta (Nombre, Fech_Incor, Fech_Vigen, Descripcion, Email_Empresa, Estudios, Otros, Solicitudes ) values ('Soldador', '2021-06-01' , '2021-07-01' , 'Soldador a media jornada' , 'elasa@hotmail.com' ,'fp', '',0);
+insert into oferta (Nombre, Fech_Incor, Fech_Vigen, Descripcion, Email_Empresa, Estudios, Otros, Solicitudes ) values ('Ingeniero', '2021-06-10' , '2021-07-01' , 'Ingeniero Informatico' , 'elasa@hotmail.com' ,'grado', '',0);
+insert into oferta (Nombre, Fech_Incor, Fech_Vigen, Descripcion, Email_Empresa, Estudios, Otros, Solicitudes ) values ('Transportista', '2021-06-03' , '2021-07-01' , 'Transportista de un camion de fruta' , 'elasa@hotmail.com' ,'bachillerato', 'carnet C1',0);
+insert into oferta (Nombre, Fech_Incor, Fech_Vigen, Descripcion, Email_Empresa, Estudios, Otros, Solicitudes ) values ('Agricultor', '2021-06-15' , '2021-07-01' , 'Trabajo en el campo' , 'garese@hotmail.com' ,'sin estudios', '',0);
+insert into oferta (Nombre, Fech_Incor, Fech_Vigen, Descripcion, Email_Empresa, Estudios, Otros, Solicitudes ) values ('Cajero', '2021-06-25' , '2021-07-01' , 'Cajero de Mercadona' , 'garese@hotmail.com' ,'secundaria', '',0);
+insert into oferta (Nombre, Fech_Incor, Fech_Vigen, Descripcion, Email_Empresa, Estudios, Otros, Solicitudes ) values ('Vago', '2021-06-02' , '2021-07-01' , 'No hacer nada' , 'garese@hotmail.com' ,'master', '',0);
+
+

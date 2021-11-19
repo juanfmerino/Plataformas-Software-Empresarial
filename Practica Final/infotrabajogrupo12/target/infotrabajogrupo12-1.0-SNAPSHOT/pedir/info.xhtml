@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <h2>¿Confirmar?</h2>
+                <h:form>
+                        <p:panelGrid id="info" columns="2">
+
+                            <h:outputText value="Datos de la Entrega: "/>
+                            <h:outputText value="#{pedir.ofertaDescripcion}"/>
+                            <h:outputText value="Descripcion: "/>
+                            <h:outputText value="#{pedir.oferta.descripcion}"/>
+                            <h:outputText value="Fecha Incorporacion: "/>
+                            <h:outputText value="#{pedir.oferta.fechIncor}">
+                             <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                            
+                            <h:outputText value="Fecha de Vigencia: "/>
+                            <h:outputText value="#{pedir.oferta.fechVigen}">
+                             <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputText>
+                            
+                            <h:outputText value="Email de la Empresa:"/>
+                            <h:outputText value=" #{pedir.oferta.emailEmpresa}"/>
+                            <h:outputText value="Oferta de Trabajo: "/>
+                            <h:outputText value="#{pedir.oferta.nombre}"/>
+                            <h:outputText value="Estudios: "/>
+                            <h:outputText value="#{pedir.oferta.estudios}"/>
+                        </p:panelGrid>
+                                                
+                    <p/><p:commandButton id="next" value="Solicitar" action="print" actionListener="#{pedir.updateOferta()}"/>
+                    <p:commandButton id="back" value="Atrás" action="pedir" icon="ui-iconarrowrefresh-1-w"/>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
